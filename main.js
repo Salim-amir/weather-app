@@ -1,4 +1,4 @@
-const API_KEY = "78f335ba44634b8ca6b62712251307";
+const API_KEY = "936c25e19a164811ace142722251407";
 const city = document.querySelector(".city").textContent;
 
 function getIconEmoji(code, isNight) {
@@ -26,7 +26,7 @@ function isNight(hour) {
 }
 
 function getWeatherByCity(city) {
-  const URL = `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&days=7`;
+  const URL = `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&days=7`;
 
   fetch(URL)
     .then((response) => response.json())
