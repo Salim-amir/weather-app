@@ -7,3 +7,6 @@ Aplikasi cuaca sederhana yang menampilkan informasi cuaca saat ini dan prediksi 
 - Tampil info suhu, kelembaban, kecepatan angin.
 - Mode siang & malam otomatis.
 - Desain responsive & clean.
+
+## Link Demo
+https://cuy-weatherapp.netlify.app/
