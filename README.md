@@ -9,4 +9,4 @@ Aplikasi cuaca sederhana yang menampilkan informasi cuaca saat ini dan prediksi 
 - Desain responsive & clean.
 
 ## Link Demo
-https://cuy-weatherapp.netlify.app/
+https://weatherapp-salim.netlify.app/
