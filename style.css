@@ -1,0 +1,200 @@
+/* CLEAR */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body[data-mode="day"] {
+  background-color: #fef3bd;
+}
+body[data-mode="night"] {
+  background-color: #0d1b2a;
+}
+
+/* Weather Card */
+.weather-card {
+  position: relative;
+  z-index: 1;
+  width: 360px;
+  height: 600px;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Background overlay effect */
+.weather-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 10px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #00cfff, #ffe15d);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Mode Background */
+
+.weather-card[data-mode="day"] {
+  background: url(assets/day-mountain.png) no-repeat center bottom;
+  background-size: cover;
+  background-color: #fef3bd;
+}
+.weather-card[data-mode="night"] {
+  background: url(assets/night-mountain.png) no-repeat center bottom;
+  background-size: cover;
+  background-color: #0d1b2a;
+}
+
+.weather-card[data-mode="day"]::before {
+  background: linear-gradient(135deg, #00cfff, #ffe15d);
+}
+.weather-card[data-mode="night"]::before {
+  background: linear-gradient(135deg, #59ccca, #003466);
+}
+
+/* Weather Top */
+.weather-top {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.weather-top .city {
+  font-size: 38px;
+  font-weight: 400;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+}
+.weather-top .date {
+  font-size: 16px;
+  font-weight: 400;
+  margin: 7px 0;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+}
+.weather-top .details-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 6px;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Weather Center */
+.weather-center {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 120px;
+}
+
+.weather-center .weather-icon {
+  font-size: 52px;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+}
+
+.temperature {
+  font-size: 36px;
+  color: white;
+}
+
+/* Sun & Moon Effects */
+.sun,
+.moon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: absolute;
+  top: 160px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 30px #ffd700;
+  animation: pulse 3s ease-in-out infinite;
+  z-index: 0;
+  display: none;
+  transition: opacity 0.5s ease;
+}
+
+.sun {
+  background: #fff8b0;
+  box-shadow: 0 0 30px #ffd700;
+}
+
+.moon {
+  background-color: #fff;
+  box-shadow: 0 0 30px #fff;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 30px currentColor;
+  }
+  50% {
+    box-shadow: 0 0 40px currentColor;
+  }
+}
+
+/* Forecast */
+#forecast {
+  margin-top: auto;
+  width: 100%;
+}
+
+.forecast-grid {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.forecast-item {
+  background: rgba(78, 77, 77, 0.25);
+  border-radius: 12px;
+  padding: 10px;
+  font-size: 14px;
+  text-align: center;
+  color: #fff;
+  backdrop-filter: blur(3px);
+  min-width: 100px; /* Biar kotaknya rapih */
+  flex-shrink: 0;
+}
+
+.forecast-item .weather-icon {
+  font-size: 38px;
+  margin: 4px 0;
+}
+
+.weather-day {
+  font-size: 16px;
+}
+
+.temperature--card {
+  font-size: 22px;
+  color: #fff;
+}
+
+@media screen and (min-width: 1200px) {
+  .weather-card {
+    height: 100vh;
+  }
+}
